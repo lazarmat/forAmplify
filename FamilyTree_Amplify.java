@@ -1,3 +1,5 @@
+package forAmplify;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -8,8 +10,10 @@ import java.util.*;
 public class FamilyTree_Amplify {
 
     public static void main(String[] args) {
-        System.out.println(common("{Donna:[Valrie,Monica],Claire:[Jessica,Britney,Jenna],Betty:[Claire, Donna]}", "Claire", "Donna"));
+        System.out.println(common("{Donna:[Valerie,Julia,Claire], Betty:[ Donna, Summer], Summer:[Linda,Paula],Julia:[Brittney,Monica],Claire:[Jessica,Jenna]}", "Claire", "Jessica"));
     }
+
+
 
     //The first step would be to convert the json object into a tree
 
@@ -83,9 +87,13 @@ public class FamilyTree_Amplify {
 
             }
         }
-        ancestor(childrenMap.get(name1),childrenMap.get(name2));
 
-        return ancestor(childrenMap.get(name1),childrenMap.get(name2)).getName();
+        TreeNode name1Node=null;
+        TreeNode name2Node= null;
+        name1Node=(childrenMap.get(name1)==null?parentMap.get(name1):childrenMap.get(name1));
+        name2Node=(childrenMap.get(name2)==null?parentMap.get(name2):childrenMap.get(name2));
+
+        return ancestor(name1Node,name2Node).getName();
     }
 
 
