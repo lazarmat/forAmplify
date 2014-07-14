@@ -5,7 +5,7 @@ import com.google.gson.JsonParser;
 
 import java.util.*;
 
-public class FamilyTree {
+public class FamilyTree_Amplify {
 
     public static void main(String[] args) {
         System.out.println(common("{Donna:[Valrie,Monica],Claire:[Jessica,Britney,Jenna],Betty:[Claire, Donna]}", "Claire", "Donna"));
